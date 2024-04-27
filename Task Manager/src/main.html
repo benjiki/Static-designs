@@ -1,166 +1,125 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./output.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="min-h-screen w-full bg-[#102C57]">
-      <!--  Header -->
-      <div class="bg-[#1f4580] flex flex-col md:flex-row justify-between">
-        <!--Logo div  -->
-        <div class="w-fit py-[20px]">
-          <h1 class="text-[#dac0a3] text-4xl pl-3 font-extrabold">
-            Task Manager
-          </h1>
-        </div>
-        <!-- the search div -->
-        <div class="flex items-center">
-          <form
-            action=""
-            class="flex flex-row gap-4 justify-center focus:no-underline"
-          >
-            <input
-              class="w-[400px] py-4 rounded-3xl bg-[#385685] placeholder:pl-3 placeholder:text-white focus:outline-none pl-3 text-white"
-              type="text"
-              placeholder="search for a task"
-            />
-            <button
-              class="rounded-full py-2 px-4 bg-[#69cde2] hover:bg-[#a1cbd3]"
-              type="submit"
-            >
-              <img src="./assets/icons/search.png" alt="" />
-            </button>
-          </form>
-        </div>
-        <!-- profile and the notification div -->
-        <div class="flex fle-row gap-x-10 items-center pr-10">
-          <!-- notification bell -->
-          <div class="w-fit relative">
-            <button
-              onclick="toggleNotificationDropdown()"
-              class="dropbtn relative"
-            >
-              <div class="flex">
-                <img src="./assets/icons/notification.png" alt="" />
-                <span class="badge text-white">3</span>
-              </div>
-            </button>
-            <div
-              id="notificationDropdown"
-              class="flex flex-col items-center gap-0.5 absolute w-[200px] right-0 rounded-xl bg-[#1a3968] hidden"
-            >
-              <a
-                class="text-white w-full pl-2 border-b border-slate-50 border-opacity-90 text-bold hover:bg-[#385685]"
-                href="#"
-                >New Job Posted</a
-              >
-              <a
-                class="text-white w-full pl-2 border-b border-slate-50 border-opacity-90 text-bold hover:bg-[#385685]"
-                href="#"
-                >Reminder: Update Profile</a
-              >
-            </div>
-          </div>
-          <!-- profile dropdown menu -->
-          <div class="w-fit relative">
-            <button onclick="toggleProfileDropdown()" class="dropbtn">
-              <img src="./assets/icons/profile.png" alt="" />
-            </button>
-            <div
-              id="profileDropdown"
-              class="flex flex-col items-center gap-0.5 absolute w-[200px] end-0 rounded-xl bg-[#1a3968] hidden"
-            >
-              <a
-                class="text-white w-full pl-2 border-b-1 border-slate-50 border-opacity-90 text-bold hover:bg-[#385685]"
-                href="#"
-                >Profile</a
-              >
-              <a
-                class="text-white w-full pl-2 border-b-1 border-slate-50 border-opacity-90 text-bold hover:bg-[#385685]"
-                href="#"
-                >Change password</a
-              >
-              <a
-                class="text-red-700 w-full pl-2 border-b-1 border-slate-50 border-opacity-90 text-bold hover:bg-[#385685]"
-                href="#"
-                >Logout</a
-              >
-            </div>
-          </div>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="min-h-screen w-full bg-[#102C57]">
+    <!--  Header -->
+    <div class="bg-[#1f4580] flex flex-col md:flex-row justify-between">
+      <!--Logo div  -->
+      <div class="w-fit py-[20px]">
+        <h1 class="text-[#dac0a3] text-4xl pl-3 font-extrabold">
+          Task Manager
+        </h1>
       </div>
-      <!-- slider -->
-      <div class="bg-[#1f4580] w-fit h-screen pt-10">
-        <!-- navigations -->
-        <div class="w-fit py-10">
-          <!-- Dashboard -->
-          <h1
-            class="ml-3 mr-40 text-2xl rounded-full font-bold text-[#FEFAF6] bg-[#0d254d] pl-4 pr-40 py-3 bg"
-          >
-            DashBoard
-          </h1>
-          <ul class="w-full flex flex-col items-start gap-5 pt-10">
-            <li
-              class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]"
-            >
-              Tasks
-            </li>
-            <li
-              class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]"
-            >
-              Completed
-            </li>
-            <li
-              class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]"
-            >
-              in Progress
-            </li>
-            <li
-              class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]"
-            >
-              To Do
-            </li>
-            <li
-              class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]"
-            >
-              Team
-            </li>
-            <li
-              class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]"
-            >
-              Trash
-            </li>
-          </ul>
+      <!-- the search div -->
+      <div class="flex items-center">
+        <form action="" class="flex flex-row gap-4 justify-center focus:no-underline">
+          <input
+            class="w-[400px] py-4 rounded-3xl bg-[#385685] placeholder:pl-3 placeholder:text-white focus:outline-none pl-3 text-white"
+            type="text" placeholder="search for a task" />
+          <button class="rounded-full py-2 px-4 bg-[#69cde2] hover:bg-[#a1cbd3]" type="submit">
+            <img src="./assets/icons/search.png" alt="" />
+          </button>
+        </form>
+      </div>
+      <!-- profile and the notification div -->
+      <div class="flex fle-row gap-x-10 items-center pr-10">
+        <!-- notification bell -->
+        <div class="w-fit relative">
+          <button onclick="toggleNotificationDropdown()" class="dropbtn relative">
+            <div class="flex">
+              <img src="./assets/icons/notification.png" alt="" />
+              <span class="badge text-white">3</span>
+            </div>
+          </button>
+          <div id="notificationDropdown"
+            class="flex flex-col items-center gap-0.5 absolute w-[200px] right-0 rounded-xl bg-[#1a3968] hidden">
+            <a class="text-white w-full pl-2 border-b border-slate-50 border-opacity-90 text-bold hover:bg-[#385685]"
+              href="#">New Job Posted</a>
+            <a class="text-white w-full pl-2 border-b border-slate-50 border-opacity-90 text-bold hover:bg-[#385685]"
+              href="#">Reminder: Update Profile</a>
+          </div>
+        </div>
+        <!-- profile dropdown menu -->
+        <div class="w-fit relative">
+          <button onclick="toggleProfileDropdown()" class="dropbtn">
+            <img src="./assets/icons/profile.png" alt="" />
+          </button>
+          <div id="profileDropdown"
+            class="flex flex-col items-center gap-0.5 absolute w-[200px] end-0 rounded-xl bg-[#1a3968] hidden">
+            <a class="text-white w-full pl-2 border-b-1 border-slate-50 border-opacity-90 text-bold hover:bg-[#385685]"
+              href="#">Profile</a>
+            <a class="text-white w-full pl-2 border-b-1 border-slate-50 border-opacity-90 text-bold hover:bg-[#385685]"
+              href="#">Change password</a>
+            <a class="text-red-700 w-full pl-2 border-b-1 border-slate-50 border-opacity-90 text-bold hover:bg-[#385685]"
+              href="#">Logout</a>
+          </div>
         </div>
       </div>
     </div>
+    <!-- slider -->
+    <div class="bg-[#1f4580] w-fit h-screen pt-10">
+      <!-- navigations -->
+      <div class="w-fit py-10">
+        <!-- Dashboard -->
+        <h1 class="ml-3 mr-40 text-2xl rounded-full font-bold text-[#FEFAF6] bg-[#0d254d] pl-4 pr-40 py-3 bg">
+          DashBoard
+        </h1>
+        <ul class="w-full flex flex-col items-start gap-5 pt-10">
+          <li class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]">
+            Tasks
+          </li>
+          <li class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]">
+            Completed
+          </li>
+          <li class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]">
+            in Progress
+          </li>
+          <li class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]">
+            To Do
+          </li>
+          <li class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]">
+            Team
+          </li>
+          <li class="w-full rounded-xl rounded-l-none bg-[#385685] text-white font-medium py-4 pl-5 hover:bg-[#c9bebe]">
+            Trash
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-    <script>
-      function toggleNotificationDropdown() {
-        var dropdown = document.getElementById("notificationDropdown");
-        dropdown.classList.toggle("hidden");
+  <script>
+    function toggleNotificationDropdown() {
+      var dropdown = document.getElementById("notificationDropdown");
+      dropdown.classList.toggle("hidden");
+    }
+
+    function toggleProfileDropdown() {
+      var dropdown = document.getElementById("profileDropdown");
+      dropdown.classList.toggle("hidden");
+    }
+
+    // Close the dropdowns if the user clicks outside of them
+    window.onclick = function (event) {
+      if (!event.target.closest(".w-fit")) {
+        var dropdowns = document.querySelectorAll(
+          ".flex.flex-col.items-center.gap-0.5.absolute.rounded-xl.bg-[#1a3968]"
+        );
+        dropdowns.forEach(function (dropdown) {
+          if (!dropdown.classList.contains("hidden")) {
+            dropdown.classList.add("hidden");
+          }
+        });
       }
+    };
+  </script>
+</body>
 
-      function toggleProfileDropdown() {
-        var dropdown = document.getElementById("profileDropdown");
-        dropdown.classList.toggle("hidden");
-      }
-
-      // Close the dropdowns if the user clicks outside of them
-      window.onclick = function (event) {
-        if (!event.target.closest(".w-fit")) {
-          var dropdowns = document.querySelectorAll(
-            ".flex.flex-col.items-center.gap-0.5.absolute.rounded-xl.bg-[#1a3968]"
-          );
-          dropdowns.forEach(function (dropdown) {
-            if (!dropdown.classList.contains("hidden")) {
-              dropdown.classList.add("hidden");
-            }
-          });
-        }
-      };
-    </script>
-  </body>
 </html>
